@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+}
+table {
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th {
+    background-color: #333;
+    color: #fff;
+}
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+.flag {
+    width: 20px;
+    height: 15px;
+    vertical-align: middle;
+    object-fit: cover;
+}
+
+.banda-queen {
+    background-color: #ffecd9;
+}
+.banda-beatles {
+    background-color: #d9e8f7;
+}
+.banda-rolling-stones {
+    background-color: #fddedd;
+}

@@ -1,0 +1,80 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+
+/* body */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color:#F5F5DC;
+}
+
+/* nav */
+nav a {
+    color: black;
+    font-weight: bold;
+}
+
+/* header */
+header {
+    color: #292929;
+    text-align: center;
+    background-image: url(/assets/img/header_background.jpg);
+    height: 600px;
+    background-size: cover;
+    background-position: bottom;
+
+}
+header .logo {
+    width: 50px;
+    height: 50px;
+}
+header .nav {
+    background-color: #F5F5DC;
+}
+/* section */
+section {
+    width: 80%;
+    margin: 0 auto;
+}
+/* nosotros */
+.nosotros h3 {
+    text-align: center;
+    color: #222;
+    font-size: 35px;
+    margin-bottom: 70px;
+}
+.nosotros h4 {
+    color: #444;
+    font-size: 30px;
+}
+.nosotros h4 span {
+    color:#8B0000;
+}
+.nosotros img {
+    width: 400px;
+    height: 400px;
+    object-fit:contain;
+}
+.nosotros table td .nosotros_descrip {
+    margin: 80px 0;
+}
+.nosotros table td {
+    vertical-align:top;
+}
+/* menu */
+.menu {
+    text-align: center;
+}
+.menu u{
+    color: #8B0000;
+}
+
+
+
+
+/* footer */
+footer {
+background-color: #333;
+color: #fff;
+text-align: center;
+} 

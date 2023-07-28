@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="shortcut icon" href="../images/favicon.jpg" type="image/x-icon">
+    <title>Contact ||Dolittle</title>
+</head>
+
+<body>
+    <div id="app" class="layout">
+        <nav class="navbar navbar-expand-lg bg-white" :class="{ active: isScrolled }">
+            <div class="container-md flex-nowrap justify-content-between">
+                <img class="logo" src="../images/logo.jpg" alt="">
+                <a class="navbar-brand fw-bolder" href="#">DoLittle</a>
+                <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="../../index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="../pages/farm.html">Farmacia</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="../pages/toys.html">Juguetes</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="fs-5 navbar-icons d-flex align-items-center">
+                    <button class="navbar-toggler border border-black" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a href="./carrito.html"><i class="bi bi-cart-fill"></i></a>
+                    <i class="bi bi-person-fill" v-on:click="toggleActive"></i>
+                </div>
+                <transition name="fade">
+                    <form class="form-login" v-show="active">
+                        <h3>iniciar sesión</h3>
+                        <div class="form-floating mb-3">
+                            <input type="email" name="email" id="email" placeholder="Email"
+                                class="form-control border-top-0 border-start-0 border-end-0 rounded-0"
+                                autocomplete="current-email">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" name="password" id="password" placeholder="Contraseña"
+                                class="form-control border-top-0 border-start-0 border-end-0 rounded-0"
+                                autocomplete="current-password">
+                            <label for="password">Contraseña</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="checkbox" id="remember-me">
+                            <label for="remember-me">Recuérdame</label>
+                        </div>
+                        <input type="submit" value="Iniciar sesión" class="btn btn-submit">
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <a class="form-link" href="">¿Olvidaste tu contraseña?</a>
+                            <a class="form-link" href="">Registrarse</a>
+                        </div>
+                    </form>
+                </transition>
+            </div>
+        </nav>
+
+        <header class="d-flex align-items-center justify-content-end">
+            <div class="container-header">
+                <h3><span>bienvenido</span> a Dolittle pet shop</h3>
+                <a href="" class="btn btn-white">compra ahora</a>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 250">
+                <path fill="#ffffff" fill-opacity="1"
+                    d="M0,160L34.3,181.3C68.6,203,137,245,206,240C274.3,235,343,181,411,176C480,171,549,213,617,213.3C685.7,213,754,171,823,138.7C891.4,107,960,85,1029,96C1097.1,107,1166,149,1234,149.3C1302.9,149,1371,107,1406,85.3L1440,64L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z">
+                </path>
+            </svg>
+        </header>
+        <main class="flex-grow-1 w-100">
+            <div class="container d-flex mt-5 mb-5 w-25 justify-content-between">
+                <div class="card-body">
+                    <caption>
+                        <h3>contactanos</h3>
+                    </caption>
+                    <form action="#" class="formulario d-flex flex-column justify-content-between">
+                        <div class="form-group">
+                            <label for="username">Nombre completo:</label>
+                            <input class="form-control" name="username" id="username" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Telefono:</label>
+                            <input class="form-control" name="telefono" id="telefono" type="tel">
+                        </div>
+                        <div class="form-group">
+                            <label for="mascota">Mascota:</label>
+                            <input class="form-control" name="mascota" id="mascota" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="comentario">Deja tu comentario:</label>
+                            <input class="form-control" name="comentario" id="comentario" type="text">
+                        </div>
+                        <input type="submit" class="btn btn-primary mt-3" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop" value="submit">
+                        </input>
+                    </form>
+
+                </div>
+            </div>
+            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <p class="modal-title fs-5" id="staticBackdropLabel">Formulario enviado con
+                                exito! 🐈🐕
+                            </p>
+                        </div>
+                        <div class="modal-body">
+                            <h4>Muchas gracias por contactarte con nosotros, nos comunicaremos con usted a
+                                la brevedad!</h4>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="d-flex flex-column flew-wrap gap-2 mb-5 mt-5">
+                <h2>Algunos de nuestros clientes...</h2>
+                <div class="d-flex gap-5 flex-wrap m-5">
+                    <div class="d-flex flex-wrap flex-row gap-5">
+                        <div class="book">
+                            <p>Valentino</p>
+                            <div class="cover">
+                                <img src="../images/IMG_3273_jpg.JPG" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-wrap flex-row gap-5">
+                        <div class="book">
+                            <p>Barto</p>
+                            <div class="cover">
+                                <img src="../images/FMR_5647.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-wrap flex-row gap-5">
+                        <div class="book">
+                            <p>Indiana</p>
+                            <div class="cover">
+                                <img src="../images/FMR_5653.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-wrap flex-row gap-5">
+                        <div class="book">
+                            <p>Palta</p>
+                            <div class="cover">
+                                <img src="../images/FMR_5672.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-wrap flex-row gap-5">
+                        <div class="book">
+                            <p>Tito, Poli, Flora</p>
+                            <div class="cover">
+                                <img src="../images/IMG_7017.JPG" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="d-flex flex-column align-items-center justify-content-evenly mt-5" id="fondoMapa">
+                <h2 id="h2Mapa" class="justify-content-start w-100">Donde nos encontramos:</h2>
+                <div class="google-maps">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.24304155271!2d-58.403770323513506!3d-34.598015272956395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca9158e82c41%3A0x6a1cd58fa7e6383d!2sParaguay%202334%205%20f%2C%20C1121ABL%20CABA!5e0!3m2!1ses!2sar!4v1690321744880!5m2!1ses!2sar"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" class="rounded"></iframe>
+                </div>
+            </section>
+
+        </main>
+        <footer class="footer">
+            <div class="container d-flex align-items-center justify-content-around mb-5">
+                <div class="image">
+                    <img class="img-fluid" src="../images/logo.png">
+                </div>
+
+                <div>
+                    <h2>Acerca de</h2>
+                    <p><i class="fa-solid fa-location-dot"></i> Paraguay 2334 5 F </p>
+                    <p><i class="fa-solid fa-phone"></i> 12-3456-7890</p>
+                    <p><i class="fa-solid fa-clock"></i> Lun-Dom: 8AM - 8PM</p>
+                </div>
+
+                <div>
+                    <h2>Blogs Recientes</h2>
+                    <a><i class="fa-regular fa-comment-dots"></i> Consejos y trucos: Primer aseo del cachorro</a>
+                    <a><i class="fa-regular fa-comment-dots"></i> Consejos para gatos </a>
+                    <a><i class="fa-regular fa-comment-dots"></i> Alimentacion y nutricion de mascotas</a>
+                </div>
+            </div>
+
+            <img class="img-fluid img-wave" src="../images/white_top_wave.png">
+
+            <div class="icons">
+                <a href="" class="btn btn-white"><i class="fa-brands fa-facebook"></i> Facebook </a>
+                <a href="" class="btn btn-white"><i class="fa-brands fa-twitter"></i> Twitter </a>
+                <a href="" class="btn btn-white"><i class="fa-brands fa-instagram"></i> Instagram </a>
+                <a href="" class="btn btn-white"><i class="fa-brands fa-linkedin"></i> Linkedin </a>
+                <a href="" class="btn btn-white"><i class="fa-brands fa-pinterest"></i> Pinterest </a>
+            </div>
+
+            <div class="footer-text">
+                © 2023 Pet Shop All Rights Reserved
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a1a124b595.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="../js/contact.js"></script>
+</body>
+
+</html>

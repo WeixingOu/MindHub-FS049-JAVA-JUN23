@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events - Amazing Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <!-- Menu links -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+                <img class="d-inline-block align-text-top" src="../images/amazing_brand.png" alt="amazing brand"
+                    height="32">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./pastEvents.html">Upcoming Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pastEvents.html">Past Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./stats.html">Stats</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Header -->
+    <header class="container-fluid p-0">
+        <div id="carousel_header" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner h-100">
+                <div class="carousel-item h-100 overlay">
+                    <img src="../images/optional_banner_1.jpg" class="d-block w-100 h-100" alt="imagen banner">
+                    <div
+                        class="carousel-caption d-none d-md-flex justify-content-center align-items-center flex-column h-100">
+                        <h5 class="display-1 letter">Welcome to our website</h5>
+                        <p class="fs-2 fw-light">Discover the most incredible and exclusive events.</p>
+                    </div>
+                </div>
+                <div class="carousel-item h-100 active">
+                    <img src="../images/optional_banner_2.jpg" class="d-block w-100 h-100" alt="imagen banner">
+                </div>
+                <div class="carousel-item h-100">
+                    <img src="../images/optional_banner_3.jpg" class="d-block w-100 h-100" alt="imagen banner">
+                </div>
+                <div class="carousel-item h-100">
+                    <img src="../images/optional_banner_5.jpg" class="d-block w-100 h-100" alt="imagen banner">
+                </div>
+                <div class="carousel-item h-100">
+                    <img src="../images/banner1.jpg" class="d-block w-100 h-100" alt="imagen banner">
+                </div>
+                <div class="carousel-item h-100">
+                    <img src="../images/banner2.jpg" class="d-block w-100 h-100" alt="imagen banner">
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel_header" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel_header" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </header>
+    <main>
+        <!-- Section Events -->
+        <section class="container-fluid p-0">
+            <div
+                class="bg-body-tertiary pt-5 py-4 px-md-5 d-flex flex-column flex-md-row align-items-center justify-content-between">
+                <div class="btn-groupcol-md-6 d-flex flex-wrap gap-2 mb-4 mb-md-0 ms-4 ms-md-0" role="group">
+                    <input type="checkbox" class="btn-check" id="btncheck1">
+                    <label class="btn btn-outline-secondary me-2" for="btncheck1">Food Fair</label>
+
+                    <input type="checkbox" class="btn-check" id="btncheck2">
+                    <label class="btn btn-outline-secondary me-2" for="btncheck2">Museum</label>
+
+                    <input type="checkbox" class="btn-check" id="btncheck3">
+                    <label class="btn btn-outline-secondary me-2" for="btncheck3">Costume Party</label>
+
+                    <input type="checkbox" class="btn-check" id="btncheck4">
+                    <label class="btn btn-outline-secondary me-2" for="btncheck4">Music Concert</label>
+
+                    <input type="checkbox" class="btn-check" id="btncheck5">
+                    <label class="btn btn-outline-secondary me-2" for="btncheck5">Race</label>
+                </div>
+                <div class="input-group w-25 search">
+                    <input type="search" class="form-control" placeholder="Search">
+                    <span class="input-group-text" id="basic-addon1">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
+                            </path>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+            <div class="row py-5 mx-2 mx-md-5 gx-5 gy-3">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4">
+                    <div class="card">
+                        <img src="../images/costume_party.jpg" class="card-img-top" alt="imagen costume party">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Halloween Night</h5>
+                            <p class="card-text text-center mb-2">Come in your scariest costume character to win amazing
+                                prizes.</p>
+                            <div class="d-flex justify-content-around pt-2">
+                                <p class="fw-bloder text-primary fs-3 lh-1 pt-1 m-0">$12,00</p>
+                                <a href="../pages/details03.html" class="btn btn-secondary">Details</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4">
+                    <div class="card">
+                        <img src="../images/music_concert.jpg" class="card-img-top" alt="imagen music concert">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Metallica in concert</h5>
+                            <p class="card-text text-center mb-2">The only concert of the most emblematic band in the
+                                world.</p>
+                            <div class="d-flex justify-content-around pt-2">
+                                <p class="fw-bloder text-primary fs-3 lh-1 pt-1 m-0">$150,00</p>
+                                <a href="../pages/details04.html" class="btn btn-secondary">Details</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4">
+                    <div class="card">
+                        <img src="../images/cinema.jpg" class="card-img-top" alt="imagen books">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Avengers</h5>
+                            <p class="card-text text-center mb-2">Marvel's Avengers 3d premiere the start of an epic
+                                saga with your best superheroes</p>
+                            <div class="d-flex justify-content-around pt-2">
+                                <p class="fw-bloder text-primary fs-3 lh-1 pt-1 m-0">$250,00</p>
+                                <a href="../pages/details07.html" class="btn btn-secondary">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 col-lg-3 mb-4">
+                    <div class="card">
+                        <img src="../images/wine_tasting.jpg" class="card-img-top" alt="imagen wine">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Wine Tasting</h5>
+                            <p class="card-text text-center mb-2">Indulge in a delightful evening of wine tasting,
+                                exploring a variety of exquisite wines from around the world.</p>
+                            <div class="d-flex justify-content-around pt-2">
+                                <p class="fw-bloder text-primary fs-3 lh-1 pt-1 m-0">$30,00</p>
+                                <a href="../pages/details08.html" class="btn btn-secondary">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer
+        class="footer container-fluid bg-dark px-5 d-flex flex-column flex-md-row justify-content-md-between align-items-md-center">
+        <div class="d-flex gap-4 mb-5 mb-md-0 ms-3 ms-md-0">
+            <a href="https://www.facebook.com/" target="_blank">
+                <img class="img-fluid" style="width: 3rem;" src="../images/facebook.png" alt="icon facebook">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+                <img class="img-fluid" style="width: 3rem;" src="../images/instagram.png" alt="icon instagram">
+            </a>
+            <a href="https://www.whatsapp.com/" target="_blank">
+                <img class="img-fluid" style="width: 3rem;" src="../images/whatsapp.png" alt="icon whatsapp">
+            </a>
+        </div>
+        <p class="text-white m-0 fs-4 text-center">COHORT FS049</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

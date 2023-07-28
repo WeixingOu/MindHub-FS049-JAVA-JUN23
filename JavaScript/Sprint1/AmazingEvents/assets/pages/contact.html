@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Amazing Events</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+
+<body>
+    <!-- Menu links -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+            <a class="navbar-brand" href="../../index.html">
+                <img class="d-inline-block align-text-top" src="../images/amazing_brand.png" alt="amazing brand"
+                    height="32">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="../../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pastEvents.html">Upcoming Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./pastEvents.html">Past Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="./contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./stats.html">Stats</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Header -->
+    <header class="container-fluid p-0">
+        <div id="carousel_header" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner h-100">
+                <div class="carousel-item h-100 overlay">
+                    <img src="../images/optional_banner_1.jpg" class="d-block w-100 h-100" alt="imagen banner">
+                    <div
+                        class="carousel-caption d-none d-md-flex justify-content-center align-items-center flex-column h-100">
+                        <h5 class="display-1 letter">Welcome to our website</h5>
+                        <p class="fs-2 fw-light">Discover the most incredible and exclusive events.</p>
+                    </div>
+                </div>
+                <div class="carousel-item h-100">
+                    <img src="../images/optional_banner_2.jpg" class="d-block w-100 h-100" alt="imagen banner">
+                </div>
+                <div class="carousel-item h-100">
+                    <img src="../images/optional_banner_3.jpg" class="d-block w-100 h-100" alt="imagen banner">
+                </div>
+                <div class="carousel-item h-100 active">
+                    <img src="../images/optional_banner_5.jpg" class="d-block w-100 h-100" alt="imagen banner">
+                </div>
+                <div class="carousel-item h-100">
+                    <img src="../images/banner1.jpg" class="d-block w-100 h-100" alt="imagen banner">
+                </div>
+                <div class="carousel-item h-100">
+                    <img src="../images/banner2.jpg" class="d-block w-100 h-100" alt="imagen banner">
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel_header" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel_header" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </header>
+    <main class="contact container d-flex flex-column justify-content-center align-items-center my-5">
+        <form action="#" method="post" class="needs-validation bg-light" novalidate>
+            <h3 class="mb-4 pt-3">Get in touch with us</h3>
+            <label for="name" class="form-label">Name: </label>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input type="text" id="name" name="user_name" class="form-control" placeholder="Enter your name" required>
+            </div>
+
+            <label for="email" class="form-label">Email: </label>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                <input type="email" id="email" name="user_email" class="form-control" placeholder="Enter your email" required>
+            </div>
+
+            <label for="msg" class="form-label">Message: </label>
+            <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-comment-alt"></i></span>
+                <textarea name="msg" id="msg" class="form-control" placeholder="Write your message" cols="30" rows="4"></textarea>
+            </div>
+
+            <div class="col-12 text-end">
+                <button class="btn btn-secondary" type="submit">Submit</button>
+            </div>
+        </form>
+    </main>
+    <footer
+        class="footer container-fluid bg-dark px-5 d-flex flex-column flex-md-row justify-content-md-between align-items-md-center">
+        <div class="d-flex gap-4 mb-5 mb-md-0 ms-3 ms-md-0">
+            <a href="https://www.facebook.com/" target="_blank">
+                <img class="img-fluid" style="width: 3rem;" src="../images/facebook.png" alt="icon facebook">
+            </a>
+            <a href="https://www.instagram.com/" target="_blank">
+                <img class="img-fluid" style="width: 3rem;" src="../images/instagram.png" alt="icon instagram">
+            </a>
+            <a href="https://www.whatsapp.com/" target="_blank">
+                <img class="img-fluid" style="width: 3rem;" src="../images/whatsapp.png" alt="icon whatsapp">
+            </a>
+        </div>
+        <p class="text-white m-0 fs-4 text-center">COHORT FS049</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

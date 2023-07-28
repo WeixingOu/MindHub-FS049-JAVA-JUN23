@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./assets/style/style.css">
+</head>
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-lg bg-white" :class="{ active: isScrolled }">
+            <div class="container-md flex-nowrap justify-content-between">
+                <a class="navbar-brand fw-bolder" href="#">LOGO</a>
+                <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
+                    <ul class="navbar-nav align-items-center">
+                        <li class="nav-item"><a class="nav-link" href="">Inicio</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="">Detalles</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">Farmacia</a></li>
+                        <li class="nav-item"> <a class="nav-link" href="">Juguetes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="fs-5 navbar-icons d-flex align-items-center">
+                    <button class="navbar-toggler border border-black border-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon fw-bold"></span>
+                    </button>
+                    <i class="bi bi-cart-fill"></i>
+                    <i class="bi bi-person-fill" v-on:click="toggleActive"></i>
+                </div>
+                <transition name="fade">
+                    <form class="form-login" v-show="active">
+                        <h3>iniciar sesión</h3>
+                        <div class="form-floating mb-3">
+                            <input type="email" name="email" id="email" placeholder="Email" class="form-control border-top-0 border-start-0 border-end-0 rounded-0" autocomplete="current-email">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="password" name="password" id="password" placeholder="Contraseña" class="form-control border-top-0 border-start-0 border-end-0 rounded-0" autocomplete="current-password">
+                            <label for="password">Contraseña</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" name="checkbox" id="remember-me">
+                            <label for="remember-me">Recuérdame</label>
+                        </div>
+                        <input type="submit" value="Iniciar sesión" class="btn btn-submit">
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <a class="form-link" href="">¿Olvidaste tu contraseña?</a>
+                            <a class="form-link" href="">Registrarse</a>
+                        </div>
+                        </form>
+                </transition>
+            </div>
+        </nav>
+
+        <header class="d-flex align-items-center justify-content-end">
+            <div class="container-header">
+                <h3><span>bienvenido</span> a ano pet shop</h3>
+                <a href="" class="btn btn-white">compra ahora</a>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 250"><path fill="#ffffff" fill-opacity="1" d="M0,160L34.3,181.3C68.6,203,137,245,206,240C274.3,235,343,181,411,176C480,171,549,213,617,213.3C685.7,213,754,171,823,138.7C891.4,107,960,85,1029,96C1097.1,107,1166,149,1234,149.3C1302.9,149,1371,107,1406,85.3L1440,64L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path></svg>
+        </header>
+
+        <section class="about" id="about">
+            <div class="image">
+                <img class="img-fluid" src="./assets/images/about.png" alt="image about">
+            </div>
+            <div class="container-about">
+                <h3><span>Productor</span> de Alimentos Premium para <span>Mascotas</span></h3>
+                <p>Con ingredientes naturales y proteínas de alta calidad, nos dedicamos a ofrecer lo mejor para tu mascota. La salud y felicidad de tu fiel compañero es nuestra prioridad.</p>
+                <a href="" class="btn">leer más</a>
+            </div>
+        </section>
+
+        <section class="service_pet">
+            <div class="image">
+                <img class="img-fluid" src="./assets/images/service_pet.png" alt="image service">
+            </div>
+
+            <div class="container-service">
+                <h6>salud</h6>
+                <h3><span>Tratamiento </span>para mascotas 24/7</h3>
+                <p>Proporcionamos cuidado constante para mascotas 24/7, asegurando su salud y bienestar siempre.</p>
+                <div class="service-button mt-5">
+                    <a href=""> <img class="img-fluid" src="./assets/images/btn_shop.png" alt=""> <span>ver ahora</span></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="service_cut">
+            <div class="container-service">
+                <h6>Cuidado y Belleza</h6>
+                <h3><span>SPA & Peluquería </span> para Mascotas</h3>
+                <p>Ofrecemos servicios de SPA y peluquería de alta calidad para todas las mascotas, asegurando su bienestar y embellecimiento.</p>
+                <div class="service-button mt-5">
+                    <a href=""> <img class="img-fluid" src="./assets/images/btn_shop02.png" alt=""> <span>ver ahora</span></a>
+                </div>
+            </div>
+
+            <div class="image">
+                <img class="img-fluid" src="./assets/images/service_cut.png" alt="image service">
+            </div>
+        </section>
+
+        <section class="activities" id="activities">
+            <h1 class="heading">ofrecemos <span>actividades</span> adicionales</h1>
+            <div class="container-activities">
+                <div class="activity">
+                    <i class="fa-solid fa-paw"></i>
+                    <h3>Sesiones de juego</h3>
+                    <a href="" class="btn">Leer más</a>
+                </div>
+
+                <div class="activity">
+                    <i class="fa-solid fa-water"></i>
+                    <h3>Diversion acuatica</h3>
+                    <a href="" class="btn">Leer más</a>
+                </div>
+
+                <div class="activity">
+                    <i class="fa-solid fa-hand-sparkles"></i>
+                    <h3>Tiempo de cariño</h3>
+                    <a href="" class="btn">Leer más</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="premium bg-light py-5 my-4" id="premiun">
+            <div class="container-xl">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div>
+                            <h4 class="text-center">Una tienda de mascotas galardonada</h4>
+                            <br>
+                            <p class="text-center">Ofrecemos servicios variados, desde actividades para mascotas hasta farmacia, juguetes y alimentos de calidad.</p>
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center gap-5">
+                            <img class="img-fluid" src="./assets/images/award_1.png">
+                            <img class="img-fluid" src="./assets/images/award_2.png">
+                            <img class="img-fluid" src="./assets/images/award_3.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="plan" id="plan">
+            <h1 class="heading">elija un <span>plan</span></h1>
+            <div class="container-plan">
+                <div class="plan-item">
+                    <h3 class="title">Plan Básico</h3>
+                    <h3 class="credit">45 Créditos</h3>
+                    <i class="fa-solid fa-shield-dog"></i>
+                    <div class="list">
+                        <p>Visitas de Bienestar <span class="fa-solid fa-check"></span></p>
+                        <p>Vacunaciones <span class="fa-solid fa-check"></span></p>
+                        <p>Desparasitación <span class="fa-solid fa-check"></span></p>
+                        <p class="text-secondary">Servicios de Emergencia <span class="fa-solid fa-x text-secondary"></span></p>
+                        <p class="text-secondary">Análisis de Salud Avanzados <span class="fa-solid fa-x text-secondary"></span></p>
+                        <p class="text-secondary">Atención Dental <span class="fa-solid fa-x text-secondary"></span></p>
+                        <p class="text-secondary">Cuidado de Especialidad <span class="fa-solid fa-x text-secondary"></span></p>
+                        <p class="text-secondary">Plan de Nutrición Personalizado <span class="fa-solid fa-x text-secondary"></span></p>
+                    </div>
+                    <div class="price"><span>$</span>150<span class="fs-4">/mes</span></div>
+                    <a href="" class="btn btn-plan">Suscríbete</a>
+                </div>
+                <div class="plan-item">
+                    <h3 class="title">Plan Avanzado </h3>
+                    <h3 class="credit">300 Créditos</h3>
+                    <div class="position-relative">
+                        <i class="fa-solid fa-shield"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="list">
+                        <p>Visitas de Bienestar <span class="fa-solid fa-check"></span></p>
+                        <p>Vacunaciones <span class="fa-solid fa-check"></span></p>
+                        <p>Desparasitación <span class="fa-solid fa-check"></span></p>
+                        <p>Servicios de Emergencia <span class="fa-solid fa-check"></span></span></p>
+                        <p>Análisis de Salud Avanzados <span class="fa-solid fa-check"></span></span></p>
+                        <p class="text-secondary">Atención Dental <span class="fa-solid fa-x text-secondary"></span></p>
+                        <p class="text-secondary">Cuidado de Especialidad <span class="fa-solid fa-x text-secondary"></span></p>
+                        <p class="text-secondary">Plan de Nutrición Personalizado <span class="fa-solid fa-x text-secondary"></span></p>
+                    </div>
+                    <div class="price"><span>$</span>350<span class="fs-4">/mes</span></div>
+                    <a href="" class="btn btn-plan">Suscríbete</a>
+                </div>
+                <div class="plan-item">
+                    <h3 class="title">Plan  Premium</h3>
+                    <h3 class="credit">1200 Créditos</h3>
+                    <div class="position-relative">
+                        <i class="fa-solid fa-crown"></i>
+                        <i class="fa-regular fa-gem"></i>
+                    </div>
+                    <div class="list">
+                        <p>Visitas de Bienestar <span class="fa-solid fa-check"></span></p>
+                        <p>Vacunaciones <span class="fa-solid fa-check"></span></p>
+                        <p>Desparasitación <span class="fa-solid fa-check"></span></p>
+                        <p>Servicios de Emergencia <span class="fa-solid fa-check"></span></p>
+                        <p>Análisis de Salud Avanzados <span class="fa-solid fa-check"></span></p>
+                        <p>Atención Dental <span class="fa-solid fa-check"></span></p>
+                        <p>Cuidado de Especialidad <span class="fa-solid fa-check"></span></p>
+                        <p>Plan de Nutrición Personalizado <span class="fa-solid fa-check"></span></p>
+                    </div>
+                    <div class="price"><span>$</span>550<span class="fs-4">/mes</span></div>
+                    <a href="" class="btn btn-plan">Suscríbete</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimony" id="testimony">
+            <div class="image">
+                <img class="img-fluid" src="./assets/images/testimonial.png">
+            </div>
+            <div id="testimonialCarousel" class="carousel slide carousel-fade">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <blockquote class="blockquote text-start">
+                            <p class="mb-0">Impresionante selección de alimentos y juguetes para mis perros. ¡Incluso tienen una farmacia en el lugar! Realmente aprecio la variedad y la calidad de los productos.</p>
+                        </blockquote>
+                        <footer class="blockquote-footer">Cristian Lol</footer>
+                    </div>
+                    <div class="carousel-item">
+                        <blockquote class="blockquote text-start">
+                            <p class="mb-0">Desde que descubrí esta tienda, no voy a ninguna otra parte para el cuidado de mi gato. Los servicios que ofrecen son excepcionales y siempre siento que mi mascota está en buenas manos.</p>
+                        </blockquote>
+                        <footer class="blockquote-footer">CR7 Bicho</footer>
+                    </div>
+                    <div class="carousel-item">
+                        <blockquote class="blockquote text-start">
+                            <p class="mb-0">Estoy muy agradecida por la ayuda y orientación que recibí en la tienda. El personal está muy bien informado y claramente se preocupa por el bienestar de las mascotas. ¡No puedo recomendarlo lo suficiente!.</p>
+                        </blockquote>
+                        <footer class="blockquote-footer">Otaku Furry</footer>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="gallery container">
+            <h4>Nuestra galeria</h4>
+            <h2>Observa más de cerca</h2>
+            <div class="container-gallery container flex-wrap" style="margin-top: -65px;">
+                <div class="images-column col-6 col-md-3" style="margin-top: 200px;">
+                    <div class="image">
+                        <img class="img-fluid" src="./assets/images/pet.jpg" alt="">
+
+                        <a class="position-absolute top-50 start-50 z-2 btn-gallery" href="#">+</a>
+                    </div>
+                    
+                    <div class="image">
+                        <img class="img-fluid" src="./assets/images/pet (2).jpg" alt="">
+
+                        <a class="position-absolute top-50 start-50 z-2 btn-gallery" href="#">+</a>
+                    </div>
+                </div>
+                <div class="images-column col-6 col-md-3" style="margin-top: 128px;">
+                    <div class="image">
+                        <img class="img-fluid" src="./assets/images/pet (3).jpg" alt="">
+
+                        <a class="position-absolute top-50 start-50 z-2 btn-gallery" href="#">+</a>
+                    </div>
+                    
+                    <div class="image">
+                        <img class="img-fluid" src="./assets/images/pet (4).jpg" alt="">
+
+                        <a class="position-absolute top-50 start-50 z-2 btn-gallery" href="#">+</a>
+                    </div>
+                </div>
+                <div class="images-column col-6 col-md-3" style="margin-top: 64px;">
+                    <div class="image">
+                        <img class="img-fluid" src="./assets/images/pet (5).jpg" alt="">
+
+                        <a class="position-absolute top-50 start-50 z-2 btn-gallery" href="#">+</a>
+                    </div>
+                    
+                    <div class="image">
+                        <img class="img-fluid" src="./assets/images/pet (6).jpg" alt="">
+
+                        <a class="position-absolute top-50 start-50 z-2 btn-gallery" href="#">+</a>
+                    </div>
+                </div>
+                <div class="images-column col-6 col-md-3">
+                    <div class="image">
+                        <img class="img-fluid" src="./assets/images/pet (7).jpg" alt="">
+
+                        <a class="position-absolute top-50 start-50 z-2 btn-gallery" href="#">+</a>
+                    </div>
+                    
+                    <div class="image">
+                        <img class="img-fluid" src="./assets/images/pet (8).jpg" alt="">
+
+                        <a class="position-absolute top-50 start-50 z-2 btn-gallery" href="#">+</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="container d-flex align-items-center justify-content-around mb-5">
+                <div class="image">
+                    <img class="img-fluid" src="./assets/images/logo.png">
+                </div>
+
+                <div>
+                    <h2>Acerca de</h2>
+                    <p><i class="fa-solid fa-location-dot"></i> Paraguay 2334 5 F </p>
+                    <p><i class="fa-solid fa-phone"></i> 12-3456-7890</p>
+                    <p><i class="fa-solid fa-clock"></i> Lun-Dom: 8AM - 8PM</p>
+                </div>
+
+                <div>
+                    <h2>Blogs Recientes</h2>
+                    <a><i class="fa-regular fa-comment-dots"></i> Consejos y trucos: Primer aseo del cachorro</a>
+                    <a><i class="fa-regular fa-comment-dots"></i> Consejos para gatos </a>
+                    <a><i class="fa-regular fa-comment-dots"></i> Alimentacion y nutricion de mascotas</a>
+                </div>
+            </div>
+
+            <img class="img-fluid img-wave" src="./assets/images/white_top_wave.png">
+            
+            <div class="icons">
+                <a href="" class="btn btn-white"><i class="fa-brands fa-facebook"></i> Facebook </a>
+                <a href="" class="btn btn-white"><i class="fa-brands fa-twitter"></i> Twitter </a>
+                <a href="" class="btn btn-white"><i class="fa-brands fa-instagram"></i> Instagram </a>
+                <a href="" class="btn btn-white"><i class="fa-brands fa-linkedin"></i> Linkedin </a>
+                <a href="" class="btn btn-white"><i class="fa-brands fa-pinterest"></i> Pinterest </a>
+            </div>
+
+            <div class="footer-text">
+                © 2023 Pet Shop All Rights Reserved
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a1a124b595.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>

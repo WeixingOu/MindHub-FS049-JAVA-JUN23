@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    background: url(../images/fondo-flex.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+}
+main {
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+div {
+    width: 100vw;
+    height: 25vh;
+}
+img {
+    height: 100%;
+}
+.caja1 {
+    display: flex;
+    justify-content: space-evenly;
+}
+.caja2 {
+    display: flex;
+    justify-content: space-between;
+}
+.caja3 {
+    display: flex;
+    justify-content: center;
+}

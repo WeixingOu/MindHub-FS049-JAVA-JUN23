@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro en Obra Social de Desarrolladores</title>
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+  </head>
+  <body>
+    <h1>Formulario de Registro</h1>
+
+    <main>
+      <fieldset class="fieldset__map">
+        <legend>Registro de OSDeDA (Obra Social De Desarrolladores)</legend>
+        <p>Tel: 9703726385</p>
+        <p>Emalil: contacto@sodeda.com</p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387589.6884333925!2d-74.25987674554235!3d40.69767090840274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20EE.%20UU.!5e0!3m2!1ses!2smx!4v1624362415324!5m2!1ses!2smx"
+          width="400"
+          height="300"
+          frameborder="0"
+          style="border: 0"
+          allowfullscreen
+        ></iframe>
+      </fieldset>
+
+      <form action="./show_data.html" method="get">
+        <fieldset>
+          <legend>Datos Personales</legend>
+          <div>
+            <label for="nombre">Nombre completo:</label>
+            <input type="text" id="nombre" name="nombre" required />
+          </div>
+          <div>
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div>
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono" />
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Áreas de Interés</legend>
+          <div>
+            <label for="frontend">
+              <input
+                type="checkbox"
+                id="frontend"
+                name="interes"
+                value="frontend"
+              />
+              Frontend
+            </label>
+          </div>
+          <div>
+            <label for="backend">
+              <input
+                type="checkbox"
+                id="backend"
+                name="interes"
+                value="backend"
+              />
+              Backend
+            </label>
+          </div>
+          <div>
+            <label for="mobile">
+              <input
+                type="checkbox"
+                id="mobile"
+                name="interes"
+                value="mobile"
+              />
+              Desarrollo móvil
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Dirección</legend>
+          <div>
+            <label for="calle">Calle:</label>
+            <input type="text" id="calle" name="calle" />
+          </div>
+          <div>
+            <label for="ciudad">Ciudad:</label>
+            <input type="text" id="ciudad" name="ciudad" />
+          </div>
+          <div>
+            <label for="pais">País:</label> 
+            <select id="pais" name="pais">
+              <option value="">-- seleccionar país --</option>
+              <option value="argentina">Argentina</option>
+              <option value="brasil">Brasil</option>
+              <option value="chile">Chile</option>
+              <option value="colombia">Colombia</option>
+              <option value="mexico">México</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <input type="submit" value="Registrarse" />
+      </form>
+    </main>
+  </body>
+</html>
