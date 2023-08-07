@@ -1,0 +1,9 @@
+
+’
+java:S1319
+"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(øøİğúÿÿÿÿ8Ê¿¤æš1
+
+java:S1319"dThe type of "nums" should be an interface such as "List" rather than the implementation "ArrayList".(Â‹‰ƒ8â™©æš1
+U	java:S106"9Replace this use of System.out or System.err by a logger.(ş™Ê¨8¾À¤æš1
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(…¸Â°üÿÿÿÿ8•”§æš1
+U	java:S106"9Replace this use of System.out or System.err by a logger.(Î¯ğ8³š©æš1
