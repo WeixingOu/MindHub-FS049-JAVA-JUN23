@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeHome | Transactions</title>
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <!-- STYLESHEET -->
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/account.css">
+
+</head>
+
+<body>
+    <div id="app">
+        <div :class="{ 'dark-theme': theme === 'dark' }" class="body-container">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img class="img-fluid" src="../images/logo.png" alt="logo"></a>
+                    <div class="input-group bg-body-secondary">
+                        <span><i class="bi bi-search text-secondary fs-4"></i></span>
+                        <input class="form-control bg-body-secondary border-0" type="search" placeholder="Search">
+                    </div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item theme-btn bg-body-secondary">
+                            <i class="bi bi-sun-fill" @click="setTheme('light')"  :class="{active: theme === 'light'}"></i>
+                            <i class="bi bi-moon-fill" @click="setTheme('dark')"  :class="{active: theme === 'dark'}"></i>
+                        </li>
+                        <li class="nav-item profile">
+                            <div class="profile-photo">
+                                <img class="img-fluid" src="../images/profile_photo.jpg" alt="profile photo">
+                            </div>
+                            <h5 class="p-0 m-0">Profile name</h5>
+                            <span><i class="bi bi-caret-down-fill"></i></span>
+                        </li>
+                        <button class="navbar-toggler">
+                            <i class="bi bi-list" @click="toggleSidebar"></i>
+                        </button>
+                    </ul>
+                </div>
+            </nav>
+    
+            <main>
+                <transition name="slide">
+                <aside v-show="isSidebarOpen" >
+                    <button id="close-btn" @click="toggleSidebar">
+                        <i class="bi bi-x"></i>
+                    </button>
+    
+                    <div class="sidebar">
+                        <a href="#" class="text-secondary">
+                            <i class="bi bi-columns-gap"></i>
+                            <h4>Dashboard</h4>
+                        </a>
+                        <a href="#" class="text-secondary active">
+                            <i class="bi bi-person-lines-fill"></i>
+                            <h4>Account</h4>
+                        </a>
+                        <a href="#" class="text-secondary">
+                            <i class="bi bi-credit-card"></i>
+                            <h4>Credit Cards</h4>
+                        </a>
+                        <a href="#" class="text-secondary">
+                            <i class="bi bi-question-square-fill"></i>
+                            <h4>Help Center</h4>
+                        </a>
+                        <a href="#" class="text-secondary">
+                            <i class="bi bi-gear-wide-connected"></i>
+                            <h4>Settings</h4>
+                        </a>
+                        <a href="#" class="text-secondary">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <h4>Logout</h4>
+                        </a>
+                    </div>
+    
+                    <div class="updates">
+                        <i class="bi bi-clock-history"></i>
+                        <h4>Updates Available</h4>
+                        <p class="m-0">Security Updates</p>
+                        <p class="m-0">General Updates</p>
+                        <a href="">Update Now</a>
+                    </div>
+                </aside>
+                </transition>
+                
+                <section class="middle">
+                    <div class="header">
+                        <h1>Account Selected</h1>
+                    </div>
+    
+                    <div class="accounts">
+                        <div class="accounts-container" ref="containerX" @mousemove="mouseMoveHandlerX"
+                            @mousedown="mouseDownHandlerX" @mouseup="mouseUpHandlerX">
+                            <div class="account" :class="{ 'dark-theme': theme === 'dark' }" @mousemove="mouseMoveHandlerX" @mousedown="mouseDownHandlerX"
+                                @mouseup="mouseUpHandlerX">
+                                <div class="semicircle">
+                                </div>
+                                <div class="icon">
+                                    <i class="bi bi-people-fill"></i>
+                                    <p class="m-0 p-0 fw-bold">JOINT</p>
+                                </div>
+                                <div class="top">
+                                    <small>Nr. Account</small>
+                                    <h2>{{ account.number }}</h2>
+                                </div>
+                                <div class="middle">
+                                    <small>Amount</small>
+                                    <h1>${{ account.balance }}</h1>
+                                </div>
+                                <div class="bottom">
+                                    <div class="left">
+                                        <small>Account</small>
+                                        <h5>MELBA</h5>
+                                    </div>
+                                    <div class="right">
+                                        <small>Created</small>
+                                        <h5>{{ account.creationDate }}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex flex-column flex-md-row">
+                            <div class="account-detail">
+                                <i class="bi bi-clipboard-data-fill"></i>
+                                <div class="d-flex align-items-center justify-content-center flex-column">
+                                    <h4 class="fw-bold mb-2">Total Sales Debit</h4>
+                                    <h2>{{ totalDebit.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) }}</h2>
+                                </div>
+                            </div>
+                            <div class="account-detail">
+                                <i class="bi bi-graph-up bg-success"></i>
+                                <h4 class="fw-bold mb-2">Total Sales Credit</h4>
+                                <h2>{{ totalCredit.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) }}</h2>
+                            </div>
+                        </div>
+
+                    </div>
+    
+                    <div class="recent-transactions mt-0">
+                        <div class="header">
+                            <h2>Transactions Resume</h2>
+                            <div class="date">
+                                <input type="date" name="" id="">
+                            </div>
+                        </div>
+
+                        <table class="table bg-white table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Account</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Amount</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Description</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="transaction in filteredTransactions">
+                                    <td>{{ account.number }}</td>
+                                    <td :class="{ 'text-success': transaction.type === 'CREDIT', 'text-danger': transaction.type === 'DEBIT' }">{{ transaction.type }}</td>
+                                    <td>{{ transaction.amount.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) }}</td>
+                                    <td>{{ transaction.date }}</td>
+                                    <td>{{ transaction.description }}</td>
+                                    <td class="text-primary">Details</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <th colspan="10"><a href="#">Show All</a></th>
+                            </tfoot>
+                        </table>
+    
+                    </div>
+                </section>
+    
+                <section class="right mt-4">
+                    <div class="sales">
+                        <div class="header mb-3">
+                            <h2 class="m-0">Sales Analytics</h2>
+                        </div>
+                        <div class="item">
+                            <div class="icon">
+                                <i class="bi bi-clipboard-data-fill bg-danger"></i>
+                            </div>
+                            <div class="right">
+                                <div class="info">
+                                    <h3 class="m-0">DEBIT</h3>
+                                    <small class="text-muted">Last 24 hours</small>
+                                </div>
+                                <h5 class="text-danger">{{ percentageIncrease('DEBIT') }}%</h5>
+                                <h3>{{ transactionsLast24Hours('DEBIT') }}</h3>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="icon">
+                                <i class="bi bi-graph-up bg-success"></i>
+                            </div>
+                            <div class="right">
+                                <div class="info">
+                                    <h3 class="m-0">CREDIT</h3>
+                                    <small class="text-muted">Last 24 hours</small>
+                                </div>
+                                <h5 class="text-success">+{{ percentageIncrease('CREDIT') }}%</h5>
+                                <h3>{{ transactionsLast24Hours('CREDIT') }}</h3>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="review">
+                        <div class="header">
+                            <h2 class="m-0">Transactions Review</h2>
+                        </div>
+                        <div id="chart" ref="canvas">
+                        </div>
+                    </div>
+    
+                </section>
+            </main>
+    
+            <footer class="pb-4 pb-lg-2">
+                <div class="container">
+                    <div class="row align-items-center justify-content-md-between flex-md-column flex-lg-row">
+                        <div class="col-md-6 mb-4 mb-lg-0">
+                            <div class="copyright text-center text-sm text-muted">
+                                Copyright © 2023. All rights reserved.
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="nav nav-footer justify-content-center align-items-center justify-content-lg-end">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link text-muted"
+                                        target="_blank"><i class="bi bi-instagram"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link text-muted"
+                                        target="_blank"><i class="bi bi-facebook"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link text-muted"
+                                        target="_blank"><i class="bi bi-whatsapp"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link pe-0 text-muted"
+                                        target="_blank"><i class="bi bi-twitter"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.js" integrity="sha512-NXopZjApK1IRgeFWl6aECo0idl7A+EEejb8ur0O3nAVt15njX9Gvvk+ArwgHfbdvJTCCGC5wXmsOUXX+ZZzDQw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../js/components/account.js"></script>
+</body>
+
+</html>
