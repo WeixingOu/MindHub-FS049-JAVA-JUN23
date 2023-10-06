@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homebanking | Yours cards</title>
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+        integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+    <!-- STYLESHEET -->
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/cards.css">
+    <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div id="app">
+        <div :class="{ 'dark-theme': theme === 'dark' }" class="body-container">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img class="img-fluid" src="../images/logo.png" alt="logo"></a>
+                    <div class="input-group bg-body-secondary">
+                        <span><i class="bi bi-search text-secondary fs-4"></i></span>
+                        <input class="form-control bg-body-secondary border-0" type="search" placeholder="Search">
+                    </div>
+                    <ul class="navbar-nav">
+                        <li class="nav-item theme-btn bg-body-secondary">
+                            <i class="bi bi-sun-fill" @click="setTheme('light')"
+                                :class="{active: theme === 'light'}"></i>
+                            <i class="bi bi-moon-fill" @click="setTheme('dark')"
+                                :class="{active: theme === 'dark'}"></i>
+                        </li>
+                        <li class="nav-item profile position-relative">
+                            <div class="profile-photo">
+                                <img class="img-fluid" src="../images/profile_photo.jpg" alt="profile photo">
+                            </div>
+                            <h5 class="p-0 m-0">{{ client.firstName }}</h5>
+                            <span class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"></span>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#" @click="logOut">
+                                    <i class="bi bi-box-arrow-in-right"></i>
+                                    <span>Sign Out</span>
+                                </a></li>
+                            </ul>
+                        </li>
+                        <button class="navbar-toggler">
+                            <i class="bi bi-list" @click="toggleSidebar"></i>
+                        </button>
+                    </ul>
+                </div>
+            </nav>
+
+            <main>
+                <transition name="slide">
+                    <aside v-show="isSidebarOpen" >
+                        <button id="close-btn" @click="toggleSidebar">
+                            <i class="bi bi-x"></i>
+                        </button>
+        
+                        <div class="sidebar">
+                            <a href="./accounts.html" class="text-secondary">
+                                <i class="bi bi-person-lines-fill"></i>
+                                <h4>Accounts</h4>
+                            </a>
+                            <a href="./cards.html" class="text-secondary active">
+                                <i class="bi bi-credit-card"></i>
+                                <h4>Credit Cards</h4>
+                            </a>
+                            <a href="./transfers.html" class="text-secondary">
+                                <i class="bi bi-arrow-left-right"></i>
+                                <h4>Transfer</h4>
+                            </a>
+                            <a href="./loan.html" class="text-secondary">
+                                <i class="bi bi-cash-stack"></i>
+                                <h4>Borrow</h4>
+                            </a>
+                            <a href="#" class="text-secondary">
+                                <i class="bi bi-question-square-fill"></i>
+                                <h4>Help Center</h4>
+                            </a>
+                            <a href="#" class="text-secondary">
+                                <i class="bi bi-gear-wide-connected"></i>
+                                <h4>Settings</h4>
+                            </a>
+                            <a href="#" class="text-secondary">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <h4>Logout</h4>
+                            </a>
+                        </div>
+                    </aside>
+                </transition>
+
+                <section class="middle">
+                    <div>
+                        <div class="header">
+                            <h1>Your credit cards</h1>
+                        </div>
+                        <div class="accounts">
+                            <div class="accounts-container" ref="containerX" @mousemove="mouseMoveHandlerX"
+                                @mousedown="mouseDownHandlerX" @mouseup="mouseUpHandlerX">
+                                <div class="card account p-0 bg-transparent" :class="{ 'dark-theme': theme === 'dark' }" @mousemove="mouseMoveHandlerX" @mousedown="mouseDownHandlerX"
+                                @mouseup="mouseUpHandlerX" @click="navigateToAccount(account.id)" v-for="creditCard in creditCards">
+                                    <div class="flip">
+                                        <div class="front" :class="creditCard.color.toLowerCase()">
+                                            <svg class="logo" width="20" height="20" viewbox="0 0 17.5 16.2">
+                                                <path
+                                                    d="M3.2 0l5.4 5.6L14.3 0l3.2 3v9L13 16.2V7.8l-4.4 4.1L4.5 8v8.2L0 12V3l3.2-3z"
+                                                    fill="white"></path>
+                                            </svg>
+                                            <div class="investor">{{ creditCard.color.toLowerCase() }}</div>
+                                            <div class="chip">
+                                                <div class="chip-line"></div>
+                                                <div class="chip-line"></div>
+                                                <div class="chip-line"></div>
+                                                <div class="chip-line"></div>
+                                                <div class="chip-main"></div>
+                                            </div>
+                                            <svg class="wave" viewBox="0 3.71 26.959 38.787" width="13.5" height="19.5"
+                                                fill="white">
+                                                <path
+                                                    d="M19.709 3.719c.266.043.5.187.656.406 4.125 5.207 6.594 11.781 6.594 18.938 0 7.156-2.469 13.73-6.594 18.937-.195.336-.57.531-.957.492a.9946.9946 0 0 1-.851-.66c-.129-.367-.035-.777.246-1.051 3.855-4.867 6.156-11.023 6.156-17.718 0-6.696-2.301-12.852-6.156-17.719-.262-.317-.301-.762-.102-1.121.204-.36.602-.559 1.008-.504z">
+                                                </path>
+                                                <path
+                                                    d="M13.74 7.563c.231.039.442.164.594.343 3.508 4.059 5.625 9.371 5.625 15.157 0 5.785-2.113 11.097-5.625 15.156-.363.422-1 .472-1.422.109-.422-.363-.472-1-.109-1.422 3.211-3.711 5.156-8.551 5.156-13.843 0-5.293-1.949-10.133-5.156-13.844-.27-.309-.324-.75-.141-1.114.188-.367.578-.582.985-.542h.093z">
+                                                </path>
+                                                <path
+                                                    d="M7.584 11.438c.227.031.438.144.594.312 2.953 2.863 4.781 6.875 4.781 11.313 0 4.433-1.828 8.449-4.781 11.312-.398.387-1.035.383-1.422-.016-.387-.398-.383-1.035.016-1.421 2.582-2.504 4.187-5.993 4.187-9.875 0-3.883-1.605-7.372-4.187-9.875-.321-.282-.426-.739-.266-1.133.164-.395.559-.641.984-.617h.094zM1.178 15.531c.121.02.238.063.344.125 2.633 1.414 4.437 4.215 4.437 7.407 0 3.195-1.797 5.996-4.437 7.406-.492.258-1.102.07-1.36-.422-.257-.492-.07-1.102.422-1.359 2.012-1.075 3.375-3.176 3.375-5.625 0-2.446-1.371-4.551-3.375-5.625-.441-.204-.676-.692-.551-1.165.122-.468.567-.785 1.051-.742h.094z">
+                                                </path>
+                                            </svg>
+                                            <div class="card-number">
+                                                <div class="section" v-for="section in creditCard.number.split('-')" :key="section">{{ section }}</div>
+                                            </div>
+                                            <div class="end"><span class="end-text">exp. end:</span><span
+                                                    class="end-date">{{ creditCard.truDate }}</span></div>
+                                            <div class="card-holder">mr/s {{ creditCard.cardHolder }}</div>
+                                            <div class="master">
+                                                <div class="circle master-red"></div>
+                                                <div class="circle master-yellow"></div>
+                                            </div>
+                                        </div>
+                                        <div class="back" :class="creditCard.color.toLowerCase()">
+                                            <div class="strip-black"></div>
+                                            <div class="ccv">
+                                                <label>ccv</label>
+                                                <div>{{ creditCard.cvv }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="add-account" data-bs-toggle="modal" :data-bs-target="creditCards.length < 3 ? '#exampleModal1' : ''"
+                            :class="{ 'disabled': creditCards.length >= 3 }" title="Maximum 3 credit cards created">
+                                <i class="text-white" :class="creditCards.length >= 3 ? 'bi bi-file-lock2': 'bi bi-file-plus' "></i>
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true" :class="{'closeModal': closeModal}">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Credit Card</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <form class="pt-3" @submit.prevent="createCreditCard">
+                                            <div class="modal-body">
+                                                <div class="input-group mb-3">
+                                                    <label class="input-group-text" for="inputGroupSelect02">Card Color</label>
+                                                    <select class="form-select" id="inputGroupSelect02" v-model="cardCreditCreated.cardColor">
+                                                        <option selected>Choose...</option>
+                                                        <option value="GOLD">Gold</option>
+                                                        <option value="SILVER">Silver</option>
+                                                        <option value="TITANIUM">Titanium</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                                <button type="submit" class="btn btn-primary">Yes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="header">
+                            <h1>Your debit cards</h1>
+                        </div>
+                        <div class="accounts">
+                            <div class="accounts-container" ref="containerX" @mousemove="mouseMoveHandlerX"
+                                 @mousedown="mouseDownHandlerX" @mouseup="mouseUpHandlerX">
+                                <div class="card account p-0 bg-transparent" :class="{ 'dark-theme': theme === 'dark' }" @mousemove="mouseMoveHandlerX" @mousedown="mouseDownHandlerX"
+                                     @mouseup="mouseUpHandlerX" @click="navigateToAccount(account.id)" v-for="debitCard in debitCards">
+                                    <div class="flip">
+                                        <div class="front" :class="debitCard.color.toLowerCase()">
+                                            <svg class="logo" width="20" height="20" viewbox="0 0 17.5 16.2">
+                                                <path
+                                                        d="M3.2 0l5.4 5.6L14.3 0l3.2 3v9L13 16.2V7.8l-4.4 4.1L4.5 8v8.2L0 12V3l3.2-3z"
+                                                        fill="white"></path>
+                                            </svg>
+                                            <div class="investor">{{ debitCard.color.toLowerCase() }}</div>
+                                            <div class="chip">
+                                                <div class="chip-line"></div>
+                                                <div class="chip-line"></div>
+                                                <div class="chip-line"></div>
+                                                <div class="chip-line"></div>
+                                                <div class="chip-main"></div>
+                                            </div>
+                                            <svg class="wave" viewBox="0 3.71 26.959 38.787" width="13.5" height="19.5"
+                                                 fill="white">
+                                                <path
+                                                        d="M19.709 3.719c.266.043.5.187.656.406 4.125 5.207 6.594 11.781 6.594 18.938 0 7.156-2.469 13.73-6.594 18.937-.195.336-.57.531-.957.492a.9946.9946 0 0 1-.851-.66c-.129-.367-.035-.777.246-1.051 3.855-4.867 6.156-11.023 6.156-17.718 0-6.696-2.301-12.852-6.156-17.719-.262-.317-.301-.762-.102-1.121.204-.36.602-.559 1.008-.504z">
+                                                </path>
+                                                <path
+                                                        d="M13.74 7.563c.231.039.442.164.594.343 3.508 4.059 5.625 9.371 5.625 15.157 0 5.785-2.113 11.097-5.625 15.156-.363.422-1 .472-1.422.109-.422-.363-.472-1-.109-1.422 3.211-3.711 5.156-8.551 5.156-13.843 0-5.293-1.949-10.133-5.156-13.844-.27-.309-.324-.75-.141-1.114.188-.367.578-.582.985-.542h.093z">
+                                                </path>
+                                                <path
+                                                        d="M7.584 11.438c.227.031.438.144.594.312 2.953 2.863 4.781 6.875 4.781 11.313 0 4.433-1.828 8.449-4.781 11.312-.398.387-1.035.383-1.422-.016-.387-.398-.383-1.035.016-1.421 2.582-2.504 4.187-5.993 4.187-9.875 0-3.883-1.605-7.372-4.187-9.875-.321-.282-.426-.739-.266-1.133.164-.395.559-.641.984-.617h.094zM1.178 15.531c.121.02.238.063.344.125 2.633 1.414 4.437 4.215 4.437 7.407 0 3.195-1.797 5.996-4.437 7.406-.492.258-1.102.07-1.36-.422-.257-.492-.07-1.102.422-1.359 2.012-1.075 3.375-3.176 3.375-5.625 0-2.446-1.371-4.551-3.375-5.625-.441-.204-.676-.692-.551-1.165.122-.468.567-.785 1.051-.742h.094z">
+                                                </path>
+                                            </svg>
+                                            <div class="card-number">
+                                                <div class="section" v-for="section in debitCard.number.split('-')" :key="section">{{ section }}</div>
+                                            </div>
+                                            <div class="end"><span class="end-text">exp. end:</span><span
+                                                    class="end-date">{{ debitCard.truDate }}</span></div>
+                                            <div class="card-holder">mr/s {{ debitCard.cardHolder }}</div>
+                                            <div class="master">
+                                                <div class="circle master-red"></div>
+                                                <div class="circle master-yellow"></div>
+                                            </div>
+                                        </div>
+                                        <div class="back" :class="debitCard.color.toLowerCase()">
+                                            <div class="strip-black"></div>
+                                            <div class="ccv">
+                                                <label>ccv</label>
+                                                <div>{{ debitCard.cvv }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="add-account" data-bs-toggle="modal" :data-bs-target="debitCards.length < 3 ? '#exampleModal' : ''"
+                            :class="{ 'disabled': debitCards.length >= 3 }" title="Maximum 3 debit cards created">
+                                <i class="text-white" :class="debitCards.length >= 3 ? 'bi bi-file-lock2': 'bi bi-file-plus' "></i>
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" :class="{'closeModal': closeModal}">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Debit Card</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <form class="pt-3" @submit.prevent="createDebitCard">
+                                            <div class="modal-body">
+                                                <div class="input-group mb-3">
+                                                    <label class="input-group-text" for="inputGroupSelect01">Card Color</label>
+                                                    <select class="form-select" id="inputGroupSelect01" v-model="cardDebitCreated.cardColor">
+                                                        <option selected>Choose...</option>
+                                                        <option value="GOLD">Gold</option>
+                                                        <option value="SILVER">Silver</option>
+                                                        <option value="TITANIUM">Titanium</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                                <button type="submit" class="btn btn-primary">Yes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <div class="loanding-overlay" v-if="isCreatingAccountO"></div>
+
+            <div class="loanding-circle" v-if="isCreatingAccountC"></div>
+
+            <div class="success-circle bg-success" v-else-if="isAccountCreated"><i class="bi bi-check-lg"></i></div>
+
+            <footer class="pb-4 pb-lg-2">
+                <div class="container">
+                    <div class="row align-items-center justify-content-md-between flex-md-column flex-lg-row">
+                        <div class="col-md-6 mb-4 mb-lg-0">
+                            <div class="copyright text-center text-sm text-muted">
+                                Copyright © 2023. All rights reserved.
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="nav nav-footer justify-content-center align-items-center justify-content-lg-end">
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link text-muted" target="_blank"><i
+                                            class="bi bi-instagram"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link text-muted" target="_blank"><i
+                                            class="bi bi-facebook"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link text-muted" target="_blank"><i
+                                            class="bi bi-whatsapp"></i></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="#" class="nav-link pe-0 text-muted" target="_blank"><i
+                                            class="bi bi-twitter"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.js"
+        integrity="sha512-NXopZjApK1IRgeFWl6aECo0idl7A+EEejb8ur0O3nAVt15njX9Gvvk+ArwgHfbdvJTCCGC5wXmsOUXX+ZZzDQw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
